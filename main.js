@@ -7,14 +7,26 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // имя переменной: myNum, значение: 10
+var myNum = 10;
 
 // имя переменной: myStr, значение: 'строка'
+var myStr = 'строка';
 
 // имя переменной: myBool, значение: true
 
+var myBool = true;
+
 // имя переменной: myArr, значения: 1, 2, 3, 4, 5
 
+var myArr = [1, 2, 3, 4, 5];
+
 // имя переменной myObj, значения: first: 'First Name', last: 'Last Name'
+
+var myObj = {
+  first: "First Name",
+  last: "Last Name"
+  };
+  
 
 /*
  * #2
@@ -24,7 +36,11 @@ console.log('Sample JavaScript #1 HW #13');
  * Результат сохраните в переменную decimal2.
  */
 
-// decimal2
+myNum=10;
+
+console.log(Math.pow(10 / 3));
+decimal2=
+// 
 
 /*
  * #3
