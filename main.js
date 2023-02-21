@@ -36,20 +36,23 @@ var myObj = {
  * Результат сохраните в переменную decimal2.
  */
 
-myNum=10;
 
-console.log(Math.pow(10 / 3));
-decimal2=
+var decimal2 = myNum.toFixed(2);
 // 
-
 /*
+
  * #3
  *
  * Создайте переменную i для которой выполните префиксный
  * и постфиксный инкремент и декремент.
  * Поэкспериментируйте с результатами, выводя их в консоль.
  */
-
+var i = 10;
+console.log(i);
+console.log(++i);
+console.log(i--);
+console.log(i++);
+console.log(--i);
 // i
 
 /*
@@ -61,18 +64,19 @@ decimal2=
  * В вычислениях можно использовать объявленную ранее переменную myNum и/или числа.
  */
 
-// myTest
+// 
+var myTest = 20;
 
 // +=
-
+myTest += 100;  //120
 // –=
-
+myTest -= 2;   //18
 // *=
-
+myTest *= 2;   //40
 // /=
-
+myTest /= 2;   //10
 // %=
-
+myTest %= 2;   //10
 /*
  * #5
  *
@@ -80,12 +84,23 @@ decimal2=
  */
 
 // константа Pi → myPi
+var myPi = Math.PI;
+console.log('myPi:', myPi);
 
 // округленное значение числа 89.279 → myRound
 
+var myRound = Math.round(89.279);
+console.log('myRound:', myRound); 
+
 // случайное число между 0..10 → myRandom
 
+var myRandom = Math.random() * 10;
+console.log('myRandom;', myRandom);
+
 // 3 в 5 степени → myPow
+
+var myPow = Math.pow(3,5);
+console.log('myPow;', myPow);
 
 /*
  * #6
@@ -95,7 +110,9 @@ decimal2=
  */
 
 // Мама мыла раму, рама мыла маму
-
+var strObj = {str: 'Мама мыла раму, рама мыла маму'};
+strObj.length = strObj.str.length;
+console.log('strObj:', strObj);
 // strObj
 
 /*
@@ -106,7 +123,8 @@ decimal2=
  */
 
 // isRamaPos
-
+var isRamaPos = strObj.str.indexOf('рама');
+console.log('isRamaPos:', isRamaPos)
 /*
  * #8
  *
@@ -117,9 +135,17 @@ decimal2=
  */
 
 // strReplace
+var strReplace = strObj.str.replace('мыла', 'моет');
 
+strReplace = strReplace.replace('рама', 'Рама');
+strReplace = strReplace.replace('мыла', 'держит');
+console.log('strReplace:', strReplace);
 /*
  * #9
  *
  * Преобразуйте любую строку в верхний, затем в нижний регистры, результат отобразите в консоли.
  */
+
+var myStr;
+console.log(myStr.toUpperCase());
+console.log(myStr.toLowerCase());
