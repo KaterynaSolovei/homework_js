@@ -9,21 +9,26 @@ console.log('Sample JavaScript #3 HW #15');
  * если нет – то счет продолжается
  */
 
-// console.log(counter()); // 0
+function counter(n) {
+  console.log(arguments);
 
-// console.log(counter()); // 1
+  for (let i = 0; i < arguments.length; i++) {
+    const element = arguments[i];
+    if counter(n) =
 
-// console.log(counter(100)); // 100
+      console.log(element)
+  }
+  return counter;
+}
 
-// console.log(counter()); // 101
-
-// console.log(counter(500)); // 500
-
-// console.log(counter()); // 501
-
-// console.log(counter(0)); // 0
-
-// console.log(counter()); // 1
+console.log(counter()); // 0
+console.log(counter()); // 1
+console.log(counter(100)); // 100
+console.log(counter()); // 101
+console.log(counter(500)); // 500
+console.log(counter()); // 501
+console.log(counter(0)); // 0
+console.log(counter()); // 1
 
 /*
  * #2
@@ -36,33 +41,44 @@ console.log('Sample JavaScript #3 HW #15');
  * counting.decrement() – уменьшает значение счетчика на 1
  */
 
-// console.log(counting.value()); // 0
+function counting(n) {
+  let count = n || 0;
 
-// counting.increment();
+  function value() {
+    if (n !== 0) {
+      count = n;
+    }
+    return count;
+  }
 
-// counting.increment();
+  function increment() {
+    count++;
+  }
 
-// counting.increment();
+  function decrement() {
+    count--;
+  }
 
-// console.log(counting.value()); // 3
-
-// counting.decrement();
-
-// counting.decrement();
-
-// console.log(counting.value()); // 1
-
-// console.log(counting.value(100)); // 100
-
-// counting.decrement();
-
-// console.log(counting.value()); // 99
-
-// console.log(counting.value(200)); // 200
-
-// counting.increment();
-
-// console.log(counting.value()); // 201
+  return {
+    value,
+    increment,
+    decrement,
+  };
+}
+console.log(counting.value()); // 0
+counting.increment();
+counting.increment();
+counting.increment();
+console.log(counting.value()); // 3
+counting.decrement();
+counting.decrement();
+console.log(counting.value()); // 1
+console.log(counting.value(100)); // 100
+counting.decrement();
+console.log(counting.value()); // 99
+console.log(counting.value(200)); // 200
+counting.increment();
+console.log(counting.value()); // 201
 
 /*
  * #3
@@ -76,9 +92,11 @@ console.log('Sample JavaScript #3 HW #15');
  * console.log(myPow(2, 3, myPrint)); // 2^3=8
  */
 
-//  console.log(myPow(3, 4, myPrint)); // 3^4=81
+function myPow(a, b, myPrint);
 
-// console.log(myPow(2, 3, myPrint)); // 2^3=8
+
+console.log(myPow(3, 4, myPrint)); // 3^4=81
+console.log(myPow(2, 3, myPrint)); // 2^3=8
 
 /*
  * #4
@@ -110,23 +128,16 @@ console.log('Sample JavaScript #3 HW #15');
  * - если сеттеру used присвоено значение 'used', ничего делать не нужно
  */
 
-// let yearNow = new Date().getFullYear(); // получить текущий год как число
 
-// console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2010, used
-
-// car.used = 'new';
-
-// console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- год изменен
-
-// car.used = 'used';
-
-// console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- изменения не выполняются
-
-// console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new
-
-// car.used = 'used';
-
-// console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new -- изменения не выполняются
+let yearNow = new Date().getFullYear(); // получить текущий год как число
+console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2010, used
+car.used = 'new';
+console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- год изменен
+car.used = 'used';
+console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- изменения не выполняются
+console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new
+car.used = 'used';
+console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new -- изменения не выполняются
 
 /*
  * #7
@@ -135,9 +146,14 @@ console.log('Sample JavaScript #3 HW #15');
  * В реализации функции должен быть применен метод Math.max() и apply().
  */
 
-// let list = [12, 23, 100, 34, 56, 9, 233];
+function myMax(arr) {
+  let list = [12, 23, 100, 34, 56, 9, 233];
+  arr.Math.max()
 
-// console.log(myMax(list)); // 233
+}
+
+
+console.log(myMax(list)); // 233
 
 /*
  * #8
@@ -175,10 +191,8 @@ console.log('Sample JavaScript #3 HW #15');
  * Любые условные операторы – запрещены и объекты.
  */
 
-// let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
 
-// let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
-
-// console.log(myUniq(notUniqNums));
-
-// console.log(myUniq(notUniqStrings));
+let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
+let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
+console.log(myUniq(notUniqNums));
+console.log(myUniq(notUniqStrings));
