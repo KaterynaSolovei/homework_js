@@ -14,9 +14,9 @@ function counter(n) {
 
   for (let i = 0; i < arguments.length; i++) {
     const element = arguments[i];
-    if counter(n) =
 
-      console.log(element)
+
+    console.log(element)
   }
   return counter;
 }
@@ -29,6 +29,20 @@ console.log(counter(500)); // 500
 console.log(counter()); // 501
 console.log(counter(0)); // 0
 console.log(counter()); // 1
+
+/*var sum = function (a, b) {
+  console.log(arguments);
+     
+var result = 0;
+     
+for (let i = 0; i < arguments.length; i++) {
+    const element = arguments[i];
+result += element;
+}
+     return result;
+}
+
+console.log(sum(1, 2, 3, 4, 5));
 
 /*
  * #2
