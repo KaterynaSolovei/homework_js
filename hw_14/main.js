@@ -32,7 +32,7 @@ var userObj = {
   firstName: "Natalia",
   lastName: "Omma",
   age: 25,
-  fullName: function() {
+  fullName: function () {
     return `${this.firstName} ${this.lastName}`;
   }
 };
@@ -170,16 +170,16 @@ console.log(weekFn("2")); // null
 
 
 */
-function ageClassification(num){
-  return  num > 0 ? 
+function ageClassification(num) {
+  return num > 0 ?
     num <= 24 ? "детский возраст" :
-    num <= 44 ? "молодой возраст" :
-    num <= 65 ? "средний возраст" :
-    num <= 75 ? "пожилой возраст" :
-    num <= 90 ? "старческий возраст" :
-    num < 122 && num < 122 ? "долгожители" :
-    null : null;
-  }
+      num <= 44 ? "молодой возраст" :
+        num <= 65 ? "средний возраст" :
+          num <= 75 ? "пожилой возраст" :
+            num <= 90 ? "старческий возраст" :
+              num <= 122 ? "долгожители" :
+                null : null;
+}
 
 console.log("-1 :", ageClassification(-1)); // -1 : null
 console.log("5 :", ageClassification(5)); // 5 : детский возраст
@@ -188,7 +188,7 @@ console.log("50 :", ageClassification(50)); // 50 : средний возрас�
 console.log("65.1 :", ageClassification(65.1)); // 65.1 : пожилой возраст
 console.log("80 :", ageClassification(80)); // 80 : старческий возраст
 console.log("110 :", ageClassification(110)); // 110 : долгожители
-console.log("130 :", ageClassification(130)); // 130 : null
+console.log("130 :", ageClassification(130));
 
 /*
 console.log("    -1 :", ageClassification(-1)); // -1 : null
@@ -206,20 +206,7 @@ console.log(" 90.01 :", ageClassification(90.01)); // 90.01 : долгожите
 console.log("   122 :", ageClassification(122)); // 122 : долгожители
 console.log("122.01 :", ageClassification(122.01)); // 122.01 : null
 console.log("   130 :", ageClassification(130)); // 130 : null
-*/
 
-/*function ageClassification(n) {
-*/
- n < 0 ? null : console.log('детский возраст'), 
- 24 > n > 44 ? console.log('молодой возраст') : console.log('детский возраст')
- 44 > n > 65 ? console.log('средний возраст') : console.log('молодой возраст')
- 65 > n > 75 ? console.log('пожилой возраст') : console.log('средний возраст')
- 75 > n > 90 ? console.log('старческий возраст') : console.log('пожилой возраст')
- 90 > n > 122 ? console.log('долгожители') : console.log(null)
-
-
-
-/*
  * Блок тестирования:
  * console.log(1, ageClassification(-1) === null);
  * console.log(2, ageClassification(1) === 'детский возраст');
