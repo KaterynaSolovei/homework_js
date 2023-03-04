@@ -8,18 +8,20 @@ console.log('Sample JavaScript #3 HW #15');
  * если число передано в функцию – счет начинается с указанного числа
  * если нет – то счет продолжается
  */
+/*
+var counter = function (num) {
+  if (num !== undefined) counter.count = num;
+       return counter.count++;
+};
+*/
 
-function counter(n) {
-  console.log(arguments);
-
-  for (let i = 0; i < arguments.length; i++) {
-    const element = arguments[i];
-
-
-    console.log(element)
-  }
-  return counter;
-}
+var counter = (function(){
+  var count = 0;
+  return function(num){
+    if (num !== undefined) count = num;
+    return count++;
+  };
+}());
 
 console.log(counter()); // 0
 console.log(counter()); // 1
@@ -30,19 +32,7 @@ console.log(counter()); // 501
 console.log(counter(0)); // 0
 console.log(counter()); // 1
 
-/*var sum = function (a, b) {
-  console.log(arguments);
-     
-var result = 0;
-     
-for (let i = 0; i < arguments.length; i++) {
-    const element = arguments[i];
-result += element;
-}
-     return result;
-}
-
-console.log(sum(1, 2, 3, 4, 5));
+/*
 
 /*
  * #2
@@ -55,7 +45,7 @@ console.log(sum(1, 2, 3, 4, 5));
  * counting.decrement() – уменьшает значение счетчика на 1
  */
 
-function counting(n) {
+function counting(n){
   let count = n || 0;
 
   function value() {
@@ -78,7 +68,8 @@ function counting(n) {
     increment,
     decrement,
   };
-}
+};
+
 console.log(counting.value()); // 0
 counting.increment();
 counting.increment();
@@ -205,8 +196,15 @@ console.log(myMax(list)); // 233
  * Любые условные операторы – запрещены и объекты.
  */
 
+function myUniq(arr){
+let arr = notUniqNums;
+let str = notUniqStrings;
+set
 
 let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
 let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
+return myUniq;
+}
+
 console.log(myUniq(notUniqNums));
 console.log(myUniq(notUniqStrings));
