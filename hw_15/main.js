@@ -15,9 +15,9 @@ var counter = function (num) {
 };
 */
 
-var counter = (function(){
+var counter = (function () {
   var count = 0;
-  return function(num){
+  return function (num) {
     if (num !== undefined) count = num;
     return count++;
   };
@@ -45,30 +45,23 @@ console.log(counter()); // 1
  * counting.decrement() – уменьшает значение счетчика на 1
  */
 
-function counting(n){
-  let count = n || 0;
-
-  function value() {
-    if (n !== 0) {
-      count = n;
-    }
-    return count;
-  }
-
-  function increment() {
-    count++;
-  }
-
-  function decrement() {
-    count--;
-  }
+let counting = (function () {
+  let counter = 0;
 
   return {
-    value,
-    increment,
-    decrement,
+
+    value(n) {
+      if (n !== undefined) counter = n;
+      return counter;
+    },
+    increment() {
+      counter++;
+    },
+    decrement() {
+      counter--;
+    }
   };
-};
+})();
 
 console.log(counting.value()); // 0
 counting.increment();
@@ -97,11 +90,25 @@ console.log(counting.value()); // 201
  * console.log(myPow(2, 3, myPrint)); // 2^3=8
  */
 
-function myPow(a, b, myPrint);
 
+
+
+function myPrint(a, b, res) {
+  return `${a}^${b}=${res}`
+}
+let myPow = function (a, b, myPrint) {
+  let res = 1;
+  for (let index = 0; index < b; index++) {
+    res *= a;
+  }
+  return myPrint(a, b, res);
+
+};
 
 console.log(myPow(3, 4, myPrint)); // 3^4=81
 console.log(myPow(2, 3, myPrint)); // 2^3=8
+
+
 
 /*
  * #4
@@ -133,8 +140,51 @@ console.log(myPow(2, 3, myPrint)); // 2^3=8
  * - если сеттеру used присвоено значение 'used', ничего делать не нужно
  */
 
+???
 
-let yearNow = new Date().getFullYear(); // получить текущий год как число
+let yearNow = new Date().getFullYear();
+
+var car = {
+  engine: 3.5,
+  model: 'RAV4',
+  name: 'Toyota',
+  year: 2023,
+  used: 'used',
+  get used() {
+    if (this.year !== yearNow) return 'used';
+    else return 'new';
+  },
+  set used(used) {
+    if (used === 'new' && this.year !== yearNow) {
+      this.year = yearNow;
+    };
+  },
+  info: function () {
+    return `${this.name}, ${this.model}, ${this.engine}, ${this.year}, ${this.used}`;
+  },
+};
+
+var car2 = {
+  engine: 2.0,
+  model: 'Accent',
+  name: 'Hyundai',
+  year: 2002,
+  used: 'used',
+  get used() {
+    if (this.year !== yearNow) return 'used'
+    else return 'new';
+  },
+  set used(used){
+    if (used === 'new' && this.year !== yearNow) {
+      this.year = yearNow;
+    };
+  },
+  info: function () {
+    return `${this.name}, ${this.model}, ${this.engine}, ${this.year}, ${this.used}`;
+  },
+};
+
+
 console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2010, used
 car.used = 'new';
 console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- год изменен
@@ -152,11 +202,9 @@ console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new -- изм
  */
 
 function myMax(arr) {
-  let list = [12, 23, 100, 34, 56, 9, 233];
-  arr.Math.max()
-
+  return Math.max.apply(null, arr);
 }
-
+let list = [12, 23, 100, 34, 56, 9, 233];
 
 console.log(myMax(list)); // 233
 
@@ -172,19 +220,22 @@ console.log(myMax(list)); // 233
  * Функция возвращает результат вычисления.
  */
 
-// console.log(myDouble(3)); // = myMul(2, 3) = 6
+function myMul(a, b){
+let num = a*b;
+return num;
+};
 
-// console.log(myDouble(4)); // = myMul(2, 4) = 8
+let myDouble = myMul.bind(null, 2);
 
-// console.log(myDouble(5)); // = myMul(2, 5) = 10
+let myTriple = myMul.bind(null, 3);
 
-// аналогичным образом создайте функцию myTriple(n), которая утраивает принимающий параметр, возвращая результат.
+console.log(myDouble(3)); // = myMul(2, 3) = 6
+console.log(myDouble(4)); // = myMul(2, 4) = 8
+console.log(myDouble(5)); // = myMul(2, 5) = 10
+console.log(myTriple(3)); // = myMul(3, 3) = 9
+console.log(myTriple(4)); // = myMul(3, 4) = 12
+console.log(myTriple(5)); // = myMul(3, 5) = 15
 
-// console.log(myTriple(3)); // = myMul(3, 3) = 9
-
-// console.log(myTriple(4)); // = myMul(3, 4) = 12
-
-// console.log(myTriple(5)); // = myMul(3, 5) = 15
 
 /*
  * #9
@@ -196,14 +247,13 @@ console.log(myMax(list)); // 233
  * Любые условные операторы – запрещены и объекты.
  */
 
-function myUniq(arr){
-let arr = notUniqNums;
-let str = notUniqStrings;
-set
-
-let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
-let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
-return myUniq;
+function myUniq(arr) {
+  var arr = notUniqNums;
+  let str = notUniqStrings; 
+ 
+  let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
+  let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
+ 
 }
 
 console.log(myUniq(notUniqNums));
