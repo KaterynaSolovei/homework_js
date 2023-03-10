@@ -140,8 +140,8 @@ console.log(myPow(2, 3, myPrint)); // 2^3=8
  * - если сеттеру used присвоено значение 'used', ничего делать не нужно
  */
 
-???
 
+/*
 let yearNow = new Date().getFullYear();
 
 var car = {
@@ -174,16 +174,51 @@ var car2 = {
     if (this.year !== yearNow) return 'used'
     else return 'new';
   },
-  set used(used){
+  set used(used) {
     if (used === 'new' && this.year !== yearNow) {
       this.year = yearNow;
     };
   },
+  
   info: function () {
     return `${this.name}, ${this.model}, ${this.engine}, ${this.year}, ${this.used}`;
   },
 };
+*/
 
+
+let yearNow = new Date().getFullYear();
+let car = {
+  engine: 3.5,
+  model: 'RAV4',
+  name: 'Toyota',
+  year: 2023,
+  info: function () {
+    return `${this.name} ${this.model}, ${this.engine}cc, year ${this.year}, ${this.used}`;
+  },
+  get used() {
+    return this.year !== yearNow ? 'used' : 'new';
+  },
+  set used(value) {
+    if (value === 'new' && this.year < yearNow) this.year = yearNow;
+  },
+};
+
+let car2 = {
+  engine: 2.0,
+  model: 'Outback',
+  name: 'Subaru',
+  year: 2008,
+  get used() {
+    return yearNow - this.year ? 'used' : 'new';
+  },
+  set used(value) {
+    if (value === 'new' && this.year < yearNow) this.year = yearNow;
+  },
+  info: function () {
+    return `${this.name} ${this.model}, ${this.engine}cc, year ${this.year}, ${this.used}`;
+  },
+};
 
 console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2010, used
 car.used = 'new';
@@ -220,9 +255,9 @@ console.log(myMax(list)); // 233
  * Функция возвращает результат вычисления.
  */
 
-function myMul(a, b){
-let num = a*b;
-return num;
+function myMul(a, b) {
+  let num = a * b;
+  return num;
 };
 
 let myDouble = myMul.bind(null, 2);
@@ -247,14 +282,18 @@ console.log(myTriple(5)); // = myMul(3, 5) = 15
  * Любые условные операторы – запрещены и объекты.
  */
 
-function myUniq(arr) {
-  var arr = notUniqNums;
-  let str = notUniqStrings; 
- 
-  let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
-  let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
- 
-}
+let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
+let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
+
+let myUniq = function (arr) {
+  let set = new Set();
+
+  arr.forEach((value) => {
+    set.add(value);
+  });
+
+  return set;
+};
 
 console.log(myUniq(notUniqNums));
 console.log(myUniq(notUniqStrings));
